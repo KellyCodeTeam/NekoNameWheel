@@ -107,6 +107,8 @@ function prepareAudio() {
 // Welcome intro sound - Neko purr and meow
 let introPlayed = false;
 function playIntroSound() {
+    // CRITICAL: Respect user's sound preference
+    if (!soundEnabled) return; // Don't play if sound is toggled off
     if (introPlayed) return; // Only play once per page load
     
     const introAudio = sounds.intro[0];
