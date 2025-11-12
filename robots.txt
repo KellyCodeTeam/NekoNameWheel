@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nekonamewheel.com/sitemap.xml
+
+# Allow indexing of all pages
+Allow: /index.html
+Allow: /about.html
+Allow: /contact.html
+Allow: /privacy.html
+Allow: /terms.html
+Allow: /blog/
+
+# Allow crawling of assets
+Allow: /styles.css
+Allow: /script.js
+Allow: /images/
+
+# Optimize crawl rate for search engines
+Crawl-delay: 1
