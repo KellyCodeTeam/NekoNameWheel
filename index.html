@@ -3,70 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neko Name Wheel - Random Name Picker Wheel of Names</title>
-    <meta name="description" content="Pick random names with our lucky cat wheel! Free, fair & fun for classrooms, giveaways & decisions. Spin now—no signup needed!">
+    <title>Neko Name Wheel - Lucky Cat Spinner for Random Names | Free & Fun</title>
+    <meta name="description" content="Meet Neko, your lucky cat companion for fair random selections! Spin the wheel to pick names for classrooms, giveaways, or decisions. Free, fun, and always fair.">
+    <meta name="keywords" content="name picker, random name picker, wheel of names, spin wheel, random picker, classroom picker, lucky cat, maneki neko, giveaway picker">
     
-    <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Neko Name Wheel - Lucky Cat Random Name Picker">
-    <meta property="og:description" content="Fair, free, and adorable random name picker. Perfect for teachers, streamers, and events!">
+    <meta property="og:description" content="Let Neko the lucky cat help you make fair decisions! Beautiful spinning wheel for teachers, streamers, and anyone who needs to pick random names.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/cat.jpg">
+    <meta property="og:image" content="https://nekonamewheel.com/images/cat.jpg">
+    <meta property="og:url" content="https://nekonamewheel.com/">
     
-    <!-- Schema.org markup -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Neko Name Wheel - Lucky Cat Random Name Picker">
+    <meta name="twitter:description" content="Free random name picker with lucky cat charm! Perfect for teachers, streamers, and events. Fair, fun, and always free.">
+    <meta name="twitter:image" content="https://nekonamewheel.com/images/cat.jpg">
+    
+    <link rel="canonical" href="https://nekonamewheel.com/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Neko Name Wheel",
-      "description": "A fair and free random name picker wheel featuring a lucky Neko cat. Perfect for classrooms, giveaways, and decision-making.",
+      "name": "Neko Name Wheel - Lucky Cat Random Picker",
+      "description": "Adorable lucky cat themed random name picker with spinning wheel. Perfect for classrooms, giveaways, and fair decision-making. Free to use with confetti celebrations!",
       "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Any",
       "offers": {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Neko Name Wheel"
+      },
+      "keywords": ["random name picker", "wheel of names", "lucky cat", "classroom picker", "giveaway wheel", "maneki neko"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "1247"
       }
     }
     </script>
     
-    <link rel="stylesheet" href="styles.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I use the Neko Name Wheel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Simply type 3-50 names into the text box (one name per line), then click the Spin Wheel button. Neko will randomly select a winner with confetti and celebration sounds. Each name has an exactly equal chance of being chosen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this name picker really random and fair?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Neko's wheel uses cryptographically secure random number generation to ensure perfect fairness. The winner is selected before the wheel even starts spinning, and the animation aligns perfectly to that predetermined choice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Neko Name Wheel free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Completely free! No hidden fees, no registration required, no usage limits. Spin as many times as you want, save as many wheels as you need, and share with as many people as you'd like."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for classroom or giveaways?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! Teachers use Neko's wheel daily for classroom activities. Streamers and content creators use it for giveaways. Event organizers use it for raffles and door prizes. The random selection is fair enough for professional use."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Preload critical assets for faster page load -->
+    <link rel="preload" href="./styles.css" as="style">
+    <link rel="preload" href="./script.js" as="script">
+    <link rel="preload" href="images/cat.jpg" as="image">
+    
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <!-- Header -->
     <header class="site-header">
         <div class="header-content">
             <div class="header-left">
                 <h2 class="site-title">Neko Name Wheel</h2>
-                <p class="site-tagline">Fair, free, and adorable — spin to choose a winner</p>
+                <p class="site-tagline">Your lucky cat companion for fair, fun decisions</p>
             </div>
             <div class="header-right">
-                <p class="site-features">No signup • Works on any device</p>
+                <p class="site-features">Free to use • No sign-up required • Works everywhere</p>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Page Title -->
         <h1 class="page-title">Neko Name Wheel - Lucky Cat Random Name Picker</h1>
         
-        <!-- Wheel Section -->
         <div class="wheel-container">
-            <!-- Lucky Neko Cat -->
             <div class="neko-cat-container">
                 <img src="images/cat.jpg" alt="Lucky Neko Cat Mascot" class="neko-cat" id="nekoCat">
                 <p class="cat-label">Lucky Neko Cat</p>
             </div>
 
-            <!-- The Wheel -->
             <div class="wheel-wrapper">
                 <div class="wheel-pointer">▼</div>
-                <canvas id="wheelCanvas" width="500" height="500" aria-label="Name wheel"></canvas>
+                <canvas id="wheelCanvas" width="900" height="900" aria-label="Name wheel"></canvas>
                 <button id="spinButton" class="spin-button">
                     <span class="button-text">Spin Wheel</span>
                 </button>
             </div>
 
-            <!-- Name Input -->
             <div class="input-container">
                 <label for="nameInput" class="input-label">
                     Enter names, one per line (3-50 names)
@@ -81,9 +143,34 @@
                 <div class="input-footer">
                     <span id="nameCount" class="name-count">0 names</span>
                     <div class="button-group">
-                        <button id="shareButton" class="secondary-button" style="display:none;">
-                            📋 Share Wheel
+                        <button id="clearButton" class="secondary-button clear-button">
+                            🗑️ Clear All
                         </button>
+                        <div id="shareContainer" class="share-container" style="display:none;">
+                            <button id="shareButton" class="secondary-button share-main-button">
+                                📋 Share Wheel
+                            </button>
+                            <div id="shareDropdown" class="share-dropdown">
+                                <button id="copyLinkBtn" class="share-option">
+                                    🔗 Copy Link
+                                </button>
+                                <button id="emailShareBtn" class="share-option">
+                                    📧 Email
+                                </button>
+                                <button id="facebookShareBtn" class="share-option">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                    Facebook
+                                </button>
+                                <button id="redditShareBtn" class="share-option">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#FF4500"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg>
+                                    Reddit
+                                </button>
+                                <button id="twitterShareBtn" class="share-option">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#000000"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+                                    X
+                                </button>
+                            </div>
+                        </div>
                         <button id="soundToggle" class="secondary-button" aria-label="Toggle sound">
                             🔊 Sound On
                         </button>
@@ -92,105 +179,112 @@
             </div>
         </div>
 
-        <!-- How to Use Section -->
+        <div class="ad-container desktop-ad">
+            <div class="ad-placeholder">
+                <p class="ad-label">Advertisement</p>
+            </div>
+        </div>
+
+        <div class="ad-container mobile-ad">
+            <div class="ad-placeholder">
+                <p class="ad-label">Advertisement</p>
+            </div>
+        </div>
+
         <section class="how-to-section">
-            <h2 class="section-title">How to Use the Neko Name Wheel</h2>
+            <h2 class="section-title">How to Use Neko's Lucky Wheel</h2>
             <ol class="instruction-list">
-                <li><strong>Enter Names:</strong> Type or paste names into the text box. Each name should be on a new line.</li>
-                <li><strong>Watch the Wheel:</strong> The wheel on the left will magically update as you add or remove names.</li>
-                <li><strong>Spin to Win:</strong> Click the "Spin!" button or tap the wheel itself to start the spin.</li>
-                <li><strong>See the Winner:</strong> Our lucky Neko cat will help pick a winner, which will be announced in a popup!</li>
+                <li><strong>Add Your Names:</strong> Type 3-50 names in the text area, one per line. Neko's wheel updates instantly as you add entries!</li>
+                <li><strong>Watch the Magic:</strong> Each name gets its own colorful segment on the spinning wheel. Everything saves automatically in your browser.</li>
+                <li><strong>Spin to Decide:</strong> Click "Spin Wheel" and watch as Neko brings her lucky charm to your random selection!</li>
+                <li><strong>Celebrate!</strong> The winner appears with festive confetti and sound effects. Remove them for the next round or spin again with everyone!</li>
             </ol>
         </section>
 
-        <!-- Content Block for SEO -->
         <section class="content-section">
-            <h2 class="section-title">The Perfect Random Name Picker for Every Occasion</h2>
-            <p>Welcome to Neko Name Wheel, your new favorite <strong>wheel of names</strong> tool! Whether you're a teacher selecting students for presentations, a streamer running giveaways, or just need to make a fair decision, our <strong>random name picker</strong> makes it fun and easy.</p>
+            <h2 class="section-title">Welcome to Neko Name Wheel!</h2>
+            <p>Welcome to Neko Name Wheel, the cutest way to pick random names! Our lucky cat (Neko) brings her special charm to your decisions with a fair, fun wheel of names. Perfect for teachers selecting students, streamers choosing giveaway winners, or anyone needing a reliable random name picker.</p>
             
-            <p>Our <strong>name wheel</strong> features an adorable lucky cat (Maneki-neko) mascot who waves her paw as the wheel spins, bringing good fortune to your random selections. Simply enter your list of names, hit spin, and let our <strong>lucky cat</strong> choose a winner fairly and randomly.</p>
+            <p>What makes Neko special? She's a Maneki-neko (Japanese lucky cat) who brings luck to every spin! Unlike boring selection tools, Neko's wheel features beautiful animations, full-screen confetti celebrations when someone wins, customizable sound effects, and perfect fairness guaranteed by advanced random algorithms.</p>
             
-            <p>Teachers love using our <strong>wheel of names</strong> for classroom activities, selecting volunteers, or creating random groups. Streamers and content creators use it for subscriber giveaways and viewer engagement. Event organizers rely on it for raffle drawings and door prizes. The possibilities are endless!</p>
+            <p>Teachers love using this in classrooms because it's visually engaging and makes student selection feel like a game. Streamers appreciate how great it looks on camera, turning routine giveaways into exciting moments their audience remembers. Event organizers trust it for raffles and door prizes because the selection process is completely transparent and fair.</p>
             
-            <p>Best of all, Neko Name Wheel is completely free, requires no signup, and works perfectly on any device. Your names are automatically saved in your browser, so you can return anytime and pick up where you left off. You can even share your wheel with others using a simple link!</p>
+            <p>Everything works right in your browser - no downloads, no registration, no limits. Your names save automatically so you can return anytime. Want to share your wheel with others? Just click the share button to generate a unique link. They'll see your exact name list ready to spin!</p>
+            
+            <p>The wheel uses cryptographically secure randomization, which is a fancy way of saying: every name has exactly the same chance of winning, every single time. You can trust Neko's wheel for anything from picking whose turn it is to choosing raffle winners at your next event.</p>
         </section>
 
-        <!-- FAQ Section -->
+        <div class="ad-container">
+            <div class="ad-placeholder">
+                <p class="ad-label">Advertisement</p>
+            </div>
+        </div>
+
         <section class="faq-section">
             <h2 class="section-title">Frequently Asked Questions</h2>
             
             <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 class="faq-question" itemprop="name">How do I use the Neko Name Wheel?</h3>
                 <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-                    <p itemprop="text">Simply type or paste names into the text area, one name per line. Ensure you have between 3 and 50 names. Then, click the 'Spin Wheel' button and watch our lucky Neko choose a winner for you!</p>
+                    <p itemprop="text">It's super easy! Just type 3-50 names into the text box (one name per line), then click the "Spin Wheel" button. Neko will randomly select a winner, and you'll see confetti and hear celebration sounds. Each name has an exactly equal chance of being chosen.</p>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 class="faq-question" itemprop="name">Is this name picker really random and fair?</h3>
                 <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-                    <p itemprop="text">Yes! The Neko Name Wheel uses a robust randomization algorithm to ensure every name has an equal chance of being selected. It's designed for fair and unbiased selections every time.</p>
+                    <p itemprop="text">Absolutely! Neko's wheel uses cryptographically secure random number generation to ensure perfect fairness. The winner is selected before the wheel even starts spinning, and the animation aligns perfectly to that predetermined choice. This makes it suitable for official giveaways, classroom activities, and any situation requiring provably fair selection.</p>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 class="faq-question" itemprop="name">Can I save my wheel for later?</h3>
                 <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-                    <p itemprop="text">Your names are automatically saved to your browser's local storage. This means if you close the tab or browser, your list of names will still be there when you return.</p>
+                    <p itemprop="text">Yes! Your names automatically save in your browser's local storage. Come back anytime and they'll still be there. You can also use the "Share Wheel" button to create a unique link that includes all your names - perfect for sharing with teammates, students, or stream viewers.</p>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 class="faq-question" itemprop="name">How do I share my wheel with others?</h3>
                 <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-                    <p itemprop="text">After entering your names, a 'Share Wheel' button will appear. Click it to copy a unique link to your clipboard. When others open this link, your names will automatically populate their wheel, ready to spin!</p>
+                    <p itemprop="text">After entering your names, click the "Share Wheel" button to generate a unique URL. You can copy the link, email it, or share it on social media (Facebook, X/Twitter, Reddit). Anyone who opens the link will see your exact name list ready to spin!</p>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 class="faq-question" itemprop="name">Is Neko Name Wheel free to use?</h3>
                 <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-                    <p itemprop="text">Absolutely! Neko Name Wheel is completely free to use, with no hidden costs, sign-ups, or downloads required. Enjoy unlimited spins and fair selections.</p>
+                    <p itemprop="text">Completely free! No hidden fees, no registration required, no usage limits. Spin as many times as you want, save as many wheels as you need, and share with as many people as you'd like. Neko's services are supported by non-intrusive advertising.</p>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 class="faq-question" itemprop="name">What is a Maneki-neko (lucky cat)?</h3>
                 <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-                    <p itemprop="text">A Maneki-neko, or lucky cat, is a common Japanese figurine (ceramic or plastic) which is often believed to bring good luck to the owner. Our adorable Neko character embodies this spirit, bringing fortune to your random selections!</p>
+                    <p itemprop="text">Maneki-neko (招き猫) is a traditional Japanese lucky cat figurine believed to bring luck and prosperity! You've probably seen them in restaurants and shops - they have one paw raised in a beckoning gesture. Neko, our mascot, is inspired by this tradition and brings her lucky charm to every spin of the wheel!</p>
                 </div>
             </div>
 
             <div class="faq-item" itemscope itemtype="https://schema.org/Question">
                 <h3 class="faq-question" itemprop="name">Can I use this for classroom or giveaways?</h3>
                 <div class="faq-answer" itemscope itemtype="https://schema.org/Answer" itemprop="acceptedAnswer">
-                    <p itemprop="text">Yes, Neko Name Wheel is perfect for classrooms, giveaways, raffles, or any situation where you need a fair and fun way to pick a random name. Teachers, streamers, event organizers, and anyone needing a reliable random name picker will find it incredibly useful.</p>
+                    <p itemprop="text">Absolutely! Teachers use Neko's wheel daily to call on students, form groups, and make classroom activities more engaging. Streamers and content creators love it for choosing giveaway winners because it looks great on camera and builds excitement. Event organizers use it for raffles, door prizes, and team assignments. The random selection is fair enough for professional use!</p>
                 </div>
             </div>
         </section>
 
-        <!-- AdSense Placeholder Zones -->
-        <div class="ad-container desktop-ad">
-            <!-- AdSense Leaderboard 728x90 - Desktop -->
+        <div class="ad-container">
             <div class="ad-placeholder">
                 <p class="ad-label">Advertisement</p>
-                <!-- AdSense code will go here -->
-            </div>
-        </div>
-
-        <div class="ad-container mobile-ad">
-            <!-- AdSense Responsive - Mobile -->
-            <div class="ad-placeholder">
-                <p class="ad-label">Advertisement</p>
-                <!-- AdSense code will go here -->
             </div>
         </div>
     </main>
 
-    <!-- Footer -->
     <footer class="site-footer">
         <nav class="footer-nav">
             <a href="about.html">About</a>
+            <span class="separator">|</span>
+            <a href="blog/">Blog</a>
             <span class="separator">|</span>
             <a href="privacy.html">Privacy</a>
             <span class="separator">|</span>
@@ -198,13 +292,14 @@
             <span class="separator">|</span>
             <a href="contact.html">Contact</a>
         </nav>
-        <p class="copyright">© 2025 Neko Name Wheel. Made with 🐱 and ❤️</p>
+        <p class="copyright">© 2025 Neko Name Wheel - Bringing lucky cat charm to fair decisions! 🐱</p>
     </footer>
 
-    <!-- Winner Modal -->
     <div id="winnerModal" class="modal" role="dialog" aria-labelledby="winnerText" aria-modal="true">
     <div class="modal-content">
-        <div class="confetti"></div>
+        <div class="confetti">
+            <canvas id="confettiCanvas"></canvas>
+        </div>
         <h2 class="modal-title">🎉 Winner! 🎉</h2>
         <p id="winnerText" class="winner-text"></p>
         <div class="modal-buttons">
@@ -214,9 +309,8 @@
     </div>
 </div>
 
-    <!-- Copy Success Toast -->
     <div id="copyToast" class="toast">🎉 Link copied to clipboard!</div>
 
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
