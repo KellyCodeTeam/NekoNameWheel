@@ -48,55 +48,61 @@ body {
 .header-content {
     max-width: 1400px;
     margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    text-align: center;
 }
 
 .site-title {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
-    margin-bottom: 0.25rem;
+    margin: 0;
 }
 
-.site-tagline {
-    font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.site-features {
+/* Pet Neko Text */
+.pet-neko-text {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--color-brown);
+    margin-bottom: 0.5rem;
+    text-align: center;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.pet-neko-text .arrow {
+    display: block;
+    font-size: 1.2rem;
+    margin-top: -0.3rem;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 /* Main Content */
 .main-content {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1rem;
 }
 
 .page-title {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.75rem;
     color: var(--color-brown);
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     font-weight: 700;
 }
 
 /* Wheel Container */
 .wheel-container {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 2rem;
-    align-items: start;
-    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
     background: white;
-    padding: 4rem 2rem 2rem 2rem; /* Top: 4rem, Right: 2rem, Bottom: 2rem, Left: 2rem */
+    padding: 1.5rem 1rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
 }
@@ -104,13 +110,24 @@ body {
 /* Neko Cat */
 .neko-cat-container {
     text-align: center;
+    order: -1;
 }
 
 .neko-cat {
-    width: 180px;
+    width: 150px;
     height: auto;
     display: block;
+    margin: 0 auto;
+    cursor: pointer;
     transition: transform 0.3s ease;
+}
+
+.neko-cat:hover {
+    transform: scale(1.05);
+}
+
+.neko-cat:active {
+    transform: scale(0.95);
 }
 
 .neko-cat.waving {
@@ -123,15 +140,12 @@ body {
     75% { transform: rotate(10deg); }
 }
 
-.neko-cat:hover {
-    transform: scale(1.05);
-}
-
 .cat-label {
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: var(--color-brown);
     font-weight: 600;
+    display: none; /* Hidden on mobile to save space */
 }
 
 /* Wheel */
@@ -158,11 +172,6 @@ body {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.25));
     line-height: 1;
     z-index: 2;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
 }
 
 #wheelCanvas {
@@ -231,9 +240,9 @@ body {
 
 .name-textarea {
     width: 100%;
-    width: 280px;
+    max-width: 400px;
     height: 500px;
-    margin-left: 140px;
+    margin-left: 0;
     padding: 1rem;
     border: 2px solid var(--color-peach);
     border-radius: var(--radius-md);
@@ -548,6 +557,7 @@ body {
     font-size: 0.9rem;
     opacity: 0.9;
 }
+
 /* Modal */
 .modal {
     display: none;
@@ -621,12 +631,6 @@ body {
     user-select: none;
 }
 
-
-
-
-
-
-
 .modal-title {
     font-size: 2rem;
     color: var(--color-brown);
@@ -694,61 +698,90 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
+
+/* Mobile-first: Default styles above are for mobile */
+
+/* Tablet and Desktop (768px and up) */
+@media (min-width: 768px) {
+    .site-header {
+        padding: 1.25rem 1.5rem;
+    }
+    
+    .site-title {
+        font-size: 1.75rem;
+    }
+    
+    .main-content {
+        padding: 2rem 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
     .wheel-container {
-        grid-template-columns: 1fr;
-        text-align: center;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 2rem;
+        align-items: start;
+        padding: 2rem;
     }
     
     .neko-cat-container {
-        order: -1;
+        order: 0;
     }
     
     .neko-cat {
-        width: 150px;
+        width: 180px;
+    }
+    
+    .cat-label {
+        display: block; /* Show on desktop */
+    }
+    
+    .pet-neko-text {
+        font-size: 1rem;
     }
     
     .wheel-wrapper {
         order: 0;
-        transform: scale(1.15);
-        transform-origin: center;
     }
     
     .input-container {
-        order: 1;
-    }
-}
-
-@media (max-width: 640px) {
-    .page-title {
-        font-size: 1.5rem;
-    }
-    
-    .wheel-container {
-        padding: 3rem 1.5rem 1.5rem 1.5rem; /* Top: 3rem, Right: 1.5rem, Bottom: 1.5rem, Left: 1.5rem */
-        gap: 1.5rem;
-    }
-    
-    .neko-cat {
-        width: 120px;
-    }
-    
-    #wheelCanvas {
-        max-width: 350px;
-    }
-    
-    .spin-button {
-        padding: 0.875rem 2rem;
-        font-size: 1.1rem;
-        min-width: 180px;
+        order: 0;
     }
     
     .name-textarea {
-        min-width: 100%;
+        width: 280px;
+        margin-left: 140px;
+        max-width: none;
+    }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 375px) {
+    .site-header {
+        padding: 0.75rem 1rem;
     }
     
-    .section-title {
-        font-size: 1.5rem;
+    .site-title {
+        font-size: 1.25rem;
+    }
+    
+    .main-content {
+        padding: 0.75rem 0.75rem;
+    }
+    
+    .wheel-container {
+        padding: 1rem 0.75rem;
+    }
+    
+    .neko-cat {
+        width: 110px;
+    }
+    
+    .pet-neko-text {
+        font-size: 0.85rem;
     }
     
     .how-to-section,
@@ -792,6 +825,52 @@ body {
         font-size: 1rem;
         text-align: center;
         justify-content: center;
+    }
+}
+
+/* Mobile-specific layout fixes (all mobile devices up to tablet) */
+@media (max-width: 767px) {
+    /* Move Neko left so wheel doesn't cover it */
+    .neko-cat-container {
+        position: relative;
+        left: -20px;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Center the wheel properly on mobile */
+    .wheel-wrapper {
+        transform: scale(1) translateX(0) !important;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Ensure wheel container is centered */
+    .wheel-container {
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 1rem 0.5rem;
+    }
+    
+    /* Make wheel large and fill mobile screen */
+    #wheelCanvas {
+        width: 85vw !important;
+        max-width: 350px !important;
+        height: auto !important;
+    }
+    
+    /* Adjust Neko size on mobile */
+    .neko-cat {
+        width: 120px;
+    }
+    
+    /* Adjust spin button for mobile */
+    .spin-button {
+        width: 85vw;
+        max-width: 350px;
+        padding: 0.875rem 2rem;
+        font-size: 1.1rem;
     }
 }
 
