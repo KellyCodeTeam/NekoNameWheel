@@ -323,6 +323,15 @@ function init() {
     clearButton.addEventListener('click', handleClear);
     closeModal.addEventListener('click', hideModal);
     
+    // Pet Neko! - Play intro sound when cat is clicked
+    nekoCat.addEventListener('click', () => {
+        if (soundEnabled) {
+            playSound('intro');
+            nekoCat.classList.add('waving');
+            setTimeout(() => nekoCat.classList.remove('waving'), 500);
+        }
+    });
+    
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
         if (!shareContainer.contains(e.target)) {
