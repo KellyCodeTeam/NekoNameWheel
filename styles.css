@@ -68,12 +68,6 @@ body {
     animation: bounce 2s ease-in-out infinite;
 }
 
-.pet-neko-text .arrow {
-    display: block;
-    font-size: 1.2rem;
-    margin-top: -0.3rem;
-}
-
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-5px); }
@@ -114,7 +108,7 @@ body {
 }
 
 .neko-cat {
-    width: 150px;
+    width: 180px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -228,21 +222,23 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    padding-left: 5rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 0 1rem;
 }
 
 .input-label {
     font-weight: 600;
     color: var(--color-brown);
     font-size: 1rem;
-    margin-left: 134px; /* Align with textarea */
+    text-align: center;
 }
 
 .name-textarea {
     width: 100%;
     max-width: 400px;
     height: 500px;
-    margin-left: 0;
     padding: 1rem;
     border: 2px solid var(--color-peach);
     border-radius: var(--radius-md);
@@ -258,6 +254,13 @@ body {
     border-color: var(--color-pink);
     background: white;
     box-shadow: 0 0 0 3px rgba(244, 181, 176, 0.1);
+}
+
+.name-textarea::placeholder {
+    color: #C09471;
+    opacity: 0.6;
+    font-style: italic;
+    line-height: 1.5;
 }
 
 .input-footer {
@@ -278,6 +281,7 @@ body {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .secondary-button {
@@ -725,14 +729,18 @@ body {
         gap: 2rem;
         align-items: start;
         padding: 2rem;
+        position: relative;
     }
     
     .neko-cat-container {
         order: 0;
+        position: absolute;
+        left: 30px;
+        top: 120px;
     }
     
     .neko-cat {
-        width: 180px;
+        width: 216px;
     }
     
     .cat-label {
@@ -745,15 +753,17 @@ body {
     
     .wheel-wrapper {
         order: 0;
+        grid-column: 2;
     }
     
     .input-container {
         order: 0;
+        grid-column: 3;
+        padding: 0;
     }
     
     .name-textarea {
         width: 280px;
-        margin-left: 140px;
         max-width: none;
     }
 }
@@ -830,11 +840,26 @@ body {
 
 /* Mobile-specific layout fixes (all mobile devices up to tablet) */
 @media (max-width: 767px) {
-    /* Move Neko left so wheel doesn't cover it */
+    /* Position Neko in top-left */
     .neko-cat-container {
-        position: relative;
-        left: -20px;
-        margin-bottom: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 30px;
+        padding-top: 20px;
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    
+    /* Adjust Neko size on mobile (180px from base style) */
+    .neko-cat {
+        width: 180px;
+        margin: 0;
+    }
+    
+    .pet-neko-text {
+        text-align: left;
+        margin-left: 0;
     }
     
     /* Center the wheel properly on mobile */
@@ -860,17 +885,17 @@ body {
         height: auto !important;
     }
     
-    /* Adjust Neko size on mobile */
-    .neko-cat {
-        width: 120px;
-    }
-    
     /* Adjust spin button for mobile */
     .spin-button {
         width: 85vw;
         max-width: 350px;
         padding: 0.875rem 2rem;
         font-size: 1.1rem;
+    }
+    
+    /* Center input container on mobile */
+    .input-container {
+        padding: 0 1rem;
     }
 }
 
