@@ -155,27 +155,6 @@ function playIntroSound() {
     }
 }
 
-function showAudioPrompt() {
-    // Create a subtle, cute prompt for user to enable sound
-    const prompt = document.createElement('div');
-    prompt.id = 'audioPrompt';
-    prompt.innerHTML = '🐱 Click anywhere to hear Neko\'s welcome!';
-    prompt.style.cssText = `
-        position: fixed;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: linear-gradient(135deg, #F4B5B0 0%, #FF9A9E 100%);
-        color: white;
-        padding: 12px 24px;
-        border-radius: 25px;
-        font-weight: bold;
-        box-shadow: 0 4px 15px rgba(244, 181, 176, 0.4);
-        cursor: pointer;
-        z-index: 10000;
-        animation: bounce 1s ease-in-out infinite;
-        font-size: 16px;
-    `;
     
     // Add bounce animation
     const style = document.createElement('style');
