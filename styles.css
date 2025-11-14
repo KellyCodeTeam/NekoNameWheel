@@ -109,7 +109,7 @@ body {
 }
 
 .neko-cat {
-    width: 180px;
+    width: 216px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -788,7 +788,7 @@ body {
     }
     
     .neko-cat {
-        width: 110px;
+        width: 160px;
     }
     
     .pet-neko-text {
@@ -841,26 +841,31 @@ body {
 
 /* Mobile-specific layout fixes (all mobile devices up to tablet) */
 @media (max-width: 767px) {
-    /* Position Neko in top-left */
+    /* Position Neko in top-left with "Pet Neko!" centered above */
     .neko-cat-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding-left: 30px;
-        padding-top: 5px;
-        margin-bottom: 20px;
+        padding-left: 0;
+        padding-top: 20px;
+        margin-bottom: 30px;
         width: 100%;
     }
     
-    /* Adjust Neko size on mobile (180px from base style) */
+    /* Adjust Neko size on mobile - increased by 20% */
     .neko-cat {
-        width: 180px;
-        margin: 0;
+        width: 216px;
+        margin-left: 20px;
+        margin-right: auto;
     }
     
+    /* Center "Pet Neko!" text above Neko */
     .pet-neko-text {
-        text-align: left;
+        text-align: center;
         margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        padding-left: 0;
     }
     
     /* Center the wheel properly on mobile */
