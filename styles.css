@@ -64,6 +64,7 @@ body {
     font-weight: 600;
     color: var(--color-brown);
     margin-bottom: 0.5rem;
+    margin-top: 0;
     text-align: center;
     animation: bounce 2s ease-in-out infinite;
 }
@@ -96,7 +97,7 @@ body {
     gap: 1rem;
     margin-bottom: 2rem;
     background: white;
-    padding: 1.5rem 1rem;
+    padding: 0.5rem 1rem 1.5rem 1rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
 }
@@ -846,8 +847,8 @@ body {
         flex-direction: column;
         align-items: flex-start;
         padding-left: 30px;
-        padding-top: 20px;
-        margin-bottom: 30px;
+        padding-top: 5px;
+        margin-bottom: 20px;
         width: 100%;
     }
     
