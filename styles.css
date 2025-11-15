@@ -64,7 +64,6 @@ body {
     font-weight: 600;
     color: var(--color-brown);
     margin-bottom: 0.5rem;
-    margin-top: 0;
     text-align: center;
     animation: bounce 2s ease-in-out infinite;
 }
@@ -97,7 +96,7 @@ body {
     gap: 1rem;
     margin-bottom: 2rem;
     background: white;
-    padding: 0.5rem 1rem 1.5rem 1rem;
+    padding: 1.5rem 1rem;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
 }
@@ -109,7 +108,7 @@ body {
 }
 
 .neko-cat {
-    width: 216px;
+    width: 180px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -281,21 +280,29 @@ body {
 .button-group {
     display: flex;
     gap: 0.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
 }
 
 .secondary-button {
     background: white;
     color: var(--color-brown);
     border: 2px solid var(--color-peach);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.1rem 0.5rem 0.7rem;
     font-size: 0.9rem;
     font-weight: 600;
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: var(--transition);
     min-height: 44px;
+    min-width: 110px;
+    flex: 1 1 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    justify-content: flex-start;
+    text-align: left;
 }
 
 .secondary-button:hover {
@@ -788,7 +795,7 @@ body {
     }
     
     .neko-cat {
-        width: 160px;
+        width: 110px;
     }
     
     .pet-neko-text {
@@ -812,16 +819,24 @@ body {
     }
     
     .button-group {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 0.3rem;
     }
     
     .secondary-button {
-        width: 100%;
+        flex: 1 1 0;
+        min-width: 0;
+        font-size: 0.75rem;
+        padding: 0.5rem 0.3rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     
     /* Mobile share dropdown adjustments */
     .share-container {
-        width: 100%;
+        flex: 1 1 auto;
     }
     
     .share-dropdown {
@@ -841,31 +856,26 @@ body {
 
 /* Mobile-specific layout fixes (all mobile devices up to tablet) */
 @media (max-width: 767px) {
-    /* Position Neko in top-left with "Pet Neko!" centered above */
+    /* Position Neko in top-left */
     .neko-cat-container {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding-left: 0;
+        padding-left: 30px;
         padding-top: 20px;
         margin-bottom: 30px;
         width: 100%;
     }
     
-    /* Adjust Neko size on mobile - increased by 20% */
+    /* Adjust Neko size on mobile (180px from base style) */
     .neko-cat {
-        width: 216px;
-        margin-left: 20px;
-        margin-right: auto;
+        width: 180px;
+        margin: 0;
     }
     
-    /* Center "Pet Neko!" text above Neko */
     .pet-neko-text {
-        text-align: center;
+        text-align: left;
         margin-left: 0;
-        margin-right: 0;
-        width: 100%;
-        padding-left: 0;
     }
     
     /* Center the wheel properly on mobile */
