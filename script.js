@@ -1,5 +1,40 @@
 /* Neko Name Wheel - Complete JavaScript */
 
+// Global handler for Neko click (called from HTML onclick)
+window.handleNekoClick = function() {
+    console.log('🎉 Neko clicked via onclick!');
+    
+    const nekoCat = document.getElementById('nekoCat');
+    if (!nekoCat) {
+        console.error('❌ nekoCat not found in handleNekoClick');
+        return;
+    }
+    
+    // Always animate the cat when clicked
+    nekoCat.classList.add('waving');
+    setTimeout(() => nekoCat.classList.remove('waving'), 1000);
+    
+    // Only play sound if enabled
+    const soundEnabled = localStorage.getItem('soundEnabled') !== 'false';
+    if (soundEnabled) {
+        const introAudio = sounds.intro[0];
+        console.log('Playing sound, audio object:', introAudio);
+        try {
+            introAudio.currentTime = 0;
+            introAudio.volume = 0.6;
+            introAudio.muted = false;
+            const playPromise = introAudio.play();
+            if (playPromise !== undefined) {
+                playPromise
+                    .then(() => console.log('✅ Neko sound playing!'))
+                    .catch(e => console.error('❌ Neko sound failed:', e));
+            }
+        } catch (e) {
+            console.error('❌ Neko sound error:', e);
+        }
+    }
+};
+
 // Global State
 let names = [];
 let isSpinning = false;
@@ -23,7 +58,6 @@ const twitterShareBtn = document.getElementById('twitterShareBtn');
 const clearButton = document.getElementById('clearButton');
 const soundToggle = document.getElementById('soundToggle');
 const nameCount = document.getElementById('nameCount');
-const nekoCat = document.getElementById('nekoCat');
 const winnerModal = document.getElementById('winnerModal');
 const winnerText = document.getElementById('winnerText');
 const closeModal = document.getElementById('closeModal');
@@ -33,7 +67,7 @@ const confettiCanvas = document.getElementById('confettiCanvas');
 const confettiCtx = confettiCanvas ? confettiCanvas.getContext('2d') : null;
 
 // Sound Effects - Multiple instances for rapid successive plays
-const sounds = {
+window.sounds = {
     chime: [
         new Audio('sounds/chimewheel.mp3'),
         new Audio('sounds/chimewheel.mp3'),
@@ -155,6 +189,27 @@ function playIntroSound() {
     }
 }
 
+function showAudioPrompt() {
+    // Create a subtle, cute prompt for user to enable sound
+    const prompt = document.createElement('div');
+    prompt.id = 'audioPrompt';
+    prompt.innerHTML = '🐱 Click anywhere to hear Neko\'s welcome!';
+    prompt.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: linear-gradient(135deg, #F4B5B0 0%, #FF9A9E 100%);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 25px;
+        font-weight: bold;
+        box-shadow: 0 4px 15px rgba(244, 181, 176, 0.4);
+        cursor: pointer;
+        z-index: 10000;
+        animation: bounce 1s ease-in-out infinite;
+        font-size: 16px;
+    `;
     
     // Add bounce animation
     const style = document.createElement('style');
@@ -267,6 +322,9 @@ function updatePointerColor() {
 
 // Initialization
 function init() {
+    // Get nekoCat element after DOM is ready
+    const nekoCat = document.getElementById('nekoCat');
+    
     soundEnabled = localStorage.getItem('soundEnabled') !== 'false';
     updateSoundButton();
     
@@ -303,13 +361,38 @@ function init() {
     closeModal.addEventListener('click', hideModal);
     
     // Pet Neko! - Play intro sound when cat is clicked
-    nekoCat.addEventListener('click', () => {
-        if (soundEnabled) {
-            playSound('intro');
+    console.log('🐱 Checking nekoCat element:', nekoCat);
+    if (nekoCat) {
+        console.log('✅ nekoCat found! Adding click listener...');
+        nekoCat.addEventListener('click', () => {
+            console.log('🎉 Neko clicked! soundEnabled:', soundEnabled);
+            
+            // Always animate the cat when clicked
             nekoCat.classList.add('waving');
-            setTimeout(() => nekoCat.classList.remove('waving'), 500);
-        }
-    });
+            setTimeout(() => nekoCat.classList.remove('waving'), 1000);
+            
+            // Only play sound if enabled
+            if (soundEnabled) {
+                const introAudio = sounds.intro[0];
+                console.log('Playing sound, audio object:', introAudio);
+                try {
+                    introAudio.currentTime = 0;
+                    introAudio.volume = 0.6;
+                    introAudio.muted = false;
+                    const playPromise = introAudio.play();
+                    if (playPromise !== undefined) {
+                        playPromise
+                            .then(() => console.log('✅ Neko sound playing!'))
+                            .catch(e => console.error('❌ Neko sound failed:', e));
+                    }
+                } catch (e) {
+                    console.error('❌ Neko sound error:', e);
+                }
+            }
+        });
+    } else {
+        console.error('❌ nekoCat element NOT found! Check HTML for id="nekoCat"');
+    }
     
     // Close dropdown when clicking outside
     document.addEventListener('click', (e) => {
@@ -433,7 +516,7 @@ function drawWheel() {
 
         // Calculate maximum text width based on radial distance available
         // Text runs from near center to near edge
-        const innerRadius = radius * 0.30; // Start text with breathing room from center
+        const innerRadius = radius * 0.25; // Start text with breathing room from center
         const outerRadius = radius * 0.92; // End text very close to edge (just a few mm margin)
         const maxTextWidth = outerRadius - innerRadius; // Available straight-line distance
         
